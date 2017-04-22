@@ -1,3 +1,0 @@
-2017-04-22 01:12:50.423:sys: Connected to chat
-2017-04-22 01:12:57.787:out: Ok... weird
-2017-04-22 01:13:03.478:sys: Disconnected from chat
