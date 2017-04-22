@@ -1,0 +1,6 @@
+2017-04-22 01:12:24.493:svr: Controller session instantiated
+2017-04-22 01:12:50.442:svr: Remote client (localhost) connected
+2017-04-22 01:12:50.444:svr: Remote client (localhost) created username cmd
+2017-04-22 01:12:57.788:cht: cmd: Ok... weird
+2017-04-22 01:13:03.479:cht: cmd has disconnected.
+2017-04-22 01:13:10.499:svr: Remote client (localhost) disconnected
