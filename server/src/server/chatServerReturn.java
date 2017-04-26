@@ -32,7 +32,7 @@ public class chatServerReturn implements Runnable{
 	public chatServerReturn(Socket s){
 		this.socket = s;
                 this.clientName = s.getLocalAddress().getHostName();
-                this.userName = "Annonymous";
+                this.userName = "Anonymous";
                 
                 this.task = new TimerTask(){
                     @Override
