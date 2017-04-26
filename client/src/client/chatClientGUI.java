@@ -30,7 +30,7 @@ public class chatClientGUI extends JFrame {
 
     public static JFrame MainWindow = new JFrame();
     private static JButton B_Connect = new JButton("Connect");
-    private static JButton B_Disconnect = new JButton("Disconnect");
+    private static JButton B_Disconnect = new JButton("Bye");
     private static JButton B_Send = new JButton("Send");
     private static JLabel L_Message = new JLabel("Message: ");    
     public static JTextField TF_Message = new JTextField(20);
