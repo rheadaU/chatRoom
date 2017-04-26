@@ -2,8 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-package client;
+ */package client;
 
 /**
  *
@@ -22,21 +21,18 @@ public class chatClientGUI extends JFrame {
     //Globals
 
     private static chatClient ChatClient;
-    public static String UserName = "Annonymous";
+    public static String UserName = "Anonymous";
     
-    public static String UserList = "";
-    
+    public static String UserList = "";    
     //for log
     public static PrintWriter writer;//log
     public static final int TIMEOUT = 10000; 
 
     public static JFrame MainWindow = new JFrame();
-    private static JButton B_About = new JButton("About");
     private static JButton B_Connect = new JButton("Connect");
     private static JButton B_Disconnect = new JButton("Disconnect");
-    private static JButton B_Help = new JButton("Help");
     private static JButton B_Send = new JButton("Send");
-    private static JLabel L_Message = new JLabel("Message: ");
+    private static JLabel L_Message = new JLabel("Message: ");    
     public static JTextField TF_Message = new JTextField(20);
     private static JLabel L_Conversation = new JLabel("Conversation");
     public static JTextArea TA_Conversation = new JTextArea();
@@ -47,7 +43,7 @@ public class chatClientGUI extends JFrame {
     private static JLabel L_LoggedInAs = new JLabel("Logged in as");
     private static JLabel L_LoggedInAsBox = new JLabel();
 
-    //login window
+    //login window    
     public static JFrame LogInWindow = new JFrame();
     public static JTextField TF_UserNameBox = new JTextField(20);
     private static JButton B_Enter = new JButton("Enter");
@@ -58,8 +54,7 @@ public class chatClientGUI extends JFrame {
         Scanner input = new Scanner(System.in);
         System.out.print("Type in a 1 to chat from GUI or 2 to enter command line chat: ");
         String choice = input.next();
-        
-        //GUI Option
+                //GUI Option
         if (choice.equals("1")) {
             BuildMainWindow();
             Initialize();
@@ -69,11 +64,11 @@ public class chatClientGUI extends JFrame {
             //using command line to chat
             
             System.out.print("Please set username now: ");
-            UserName = input.next();
+            UserName = input.next();            
             input.nextLine();
             
             Connect();
-            controlLoop();
+            chatLoop();
             /*
             * Need to figure out how to know when to recieve message
             */
@@ -86,27 +81,27 @@ public class chatClientGUI extends JFrame {
 
     }
     
-    public static void controlLoop() {
+    public static void chatLoop() {
         //need to figure out how to know when to recieve a message from the server
         Scanner input = new Scanner(System.in);
         System.out.println("type \"help\" for commands");
         while (true) {
             //System.out.print("-> ");
             try{
-            String cmmd = input.next();
-            if (cmmd.equals("quit")) {
+            String s = input.next();
+            if (s.equals("quit")) {
                 System.out.println("Logging out...");
-                ChatClient.Disconnect("cmd");
+                ChatClient.Disconnect("Bye");
                 break;
-            } else if (cmmd.equalsIgnoreCase("help")) {
+            } else if (s.equalsIgnoreCase("help")) {
                 help();
-            } else if (cmmd.equalsIgnoreCase("send")) {
+            } else if (s.equalsIgnoreCase("send")) {
                 ChatClient.Send(input.nextLine().substring(1));
-            } else if (cmmd.equalsIgnoreCase("o_list")){
+            } else if (s.equalsIgnoreCase("o_list")){
                 System.out.println(UserList);
             } 
               else {
-                System.out.println("unrecognized command: " + cmmd);
+                System.out.println("unrecognized command: " + s);
                 if (input.hasNext()) {
                     input.nextLine();
                 }
@@ -223,19 +218,7 @@ public class chatClientGUI extends JFrame {
         MainWindow.getContentPane().add(B_Connect);
         B_Connect.setBounds(130, 40, 110, 25);
 
-        B_Help.setBackground(new java.awt.Color(0, 0, 255));
-        B_Help.setForeground(new java.awt.Color(255, 255, 255));
-        B_Help.setOpaque(true);
-        B_Help.setBorderPainted(false);
-        MainWindow.getContentPane().add(B_Help);
-        B_Help.setBounds(420, 40, 81, 25);
 
-        B_About.setBackground(new java.awt.Color(0, 0, 255));
-        B_About.setForeground(new java.awt.Color(255, 255, 255));
-        B_About.setOpaque(true);
-        B_About.setBorderPainted(false);
-        MainWindow.getContentPane().add(B_About);
-        B_About.setBounds(340, 40, 75, 25);
 
         MainWindow.getContentPane().add(L_Message);
         L_Message.setBounds(10, 10, 60, 20);
@@ -336,21 +319,9 @@ public class chatClientGUI extends JFrame {
             }
         }
         );
-        B_Help.addActionListener(
-                new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Action_B_Help();
-            }
-        }
-        );
+        
 
-        B_About.addActionListener(
-                new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Action_B_Help();
-            }
-        }
-        );
+        
     }//end
 
     public static void Action_B_Send() {
@@ -370,9 +341,7 @@ public class chatClientGUI extends JFrame {
         }
     }
 
-    public static void Action_B_Help() {
-        JOptionPane.showMessageDialog(null, "BLah");
-    }
+   
 
     
 
