@@ -123,7 +123,7 @@ public class chatClientGUI extends JFrame {
         System.out.println("send \t\t sends message to server");
         System.out.println("o_list \t\t displays who is online");
         System.out.println("help \t\t displays this message");
-        System.out.println("quit \t\t terminate console");
+        System.out.println("bye \t\t leave chat");
     }
 
     public static void Connect() {
