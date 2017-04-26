@@ -89,7 +89,7 @@ public class chatClientGUI extends JFrame {
             //System.out.print("-> ");
             try{
             String s = input.next();
-            if (s.equals("quit")) {
+            if (s.equalsIgnoreCase("bye")) {
                 System.out.println("Logging out...");
                 ChatClient.Disconnect("Bye");
                 break;
